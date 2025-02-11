@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gwapings</title>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .text-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .carousel img {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel img.active {
+            opacity: 1;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        .button-71 {
+            background-color: #ffffff;
+            border: 0;
+            border-radius: 56px;
+            color: #000;
+            cursor: pointer;
+            display: inline-block;
+            font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            outline: 0;
+            padding: 16px 21px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: all .3s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-71:before {
+            background-color: initial;
+            background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+            border-radius: 125px;
+            content: "";
+            height: 50%;
+            left: 4%;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            transition: all .3s;
+            width: 92%;
+        }
+        .button-71:hover {
+            box-shadow: rgba(0, 0, 0, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+            transform: scale(1.05);
+        }
+        @media (min-width: 768px) {
+            .button-71 {
+                padding: 16px 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h2>Gwapings ba?</h2>
+        <div class="btn-container">
+            <button class="button-71 yes" onclick="changeText(this)">Yes</button>
+            <button class="button-71 no" onclick="changeText(this)">Yes</button>
+        </div>
+    </div>
+    <div class="carousel">
+        <img src="1.jpg" class="active" alt="Image 1">
+        <img src="2.jpg" alt="Image 2">
+        <img src="3.jpg" alt="Image 3">
+        <img src="4.jpg" alt="Image 4">
+        <img src="5.jpg" alt="Image 5">
+        <img src="6.jpg" alt="Image 6">
+        <img src="7.jpg" alt="Image 7">
+        <img src="8.jpg" alt="Image 8">
+        <img src="9.jpg" alt="Image 9">
+        <img src="10.jpg" alt="Image 10">
+        <img src="11.jpg" alt="Image 11">
+        <img src="12.jpg" alt="Image 12">
+    </div>
+    
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const intervalTime = 1000; // Adjust time in milliseconds (1000 = 1 second)
+
+        function nextImage() {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+        }
+        
+        setInterval(nextImage, intervalTime);
+        
+        function changeText(button) {
+            button.textContent = button.textContent === "hehe" ? (button.classList.contains("yes") ? "Yes" : "Yes") : "hehe";
+        }
+    </script>
+</body>
+</html>
